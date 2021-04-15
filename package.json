@@ -1,5 +1,5 @@
 {
-  "name": "webp-convert",
+  "name": "@kevin-coelho/webp-convert",
   "version": "1.0.0",
   "description": "node.js command line utility to convert webp images",
   "main": "index.js",
