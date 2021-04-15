@@ -7,7 +7,8 @@
     "convert-webp": "./index.js"
   },
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "install": "node index.js --setup"
   },
   "repository": {
     "type": "git",
