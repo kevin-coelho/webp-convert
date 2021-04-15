@@ -1,5 +1,4 @@
 dependencies:
-  bluebird: 3.7.2
   chalk: 4.1.0
   commander: 7.2.0
   omelette: 0.4.15-1
@@ -120,10 +119,6 @@ packages:
     dev: true
     resolution:
       integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==
-  /bluebird/3.7.2:
-    dev: false
-    resolution:
-      integrity: sha512-XpNj6GDQzdfW+r2Wnn7xiSAd7TM3jzkxGXBGTtWKuSXv1xUV+azxAm8jdWZN06QTQk+2N2XB9jRDkvbmQmcRtg==
   /brace-expansion/1.1.11:
     dependencies:
       balanced-match: 1.0.2
@@ -905,7 +900,6 @@ packages:
     resolution:
       integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==
 specifiers:
-  bluebird: ^3.7.2
   chalk: ^4.1.0
   commander: ^7.2.0
   eslint: ^7.24.0

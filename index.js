@@ -3,7 +3,6 @@
 const { program } = require('commander');
 const prompts = require('prompts');
 const omelette = require('omelette');
-//const Promise = require('bluebird');
 const fs = require('fs');
 const chalk = require('chalk');
 const path = require('path');
@@ -51,10 +50,6 @@ async function convertFromWebp(file, ext, out) {
 
 function generateOutfile(file, out, isWebp, ext) {
   const _file = file.replace(/\.[^/.]+$/, '');
-  console.log({
-    _file,
-    isWebp,
-  });
   if (!out) {
     out = isWebp ? `${_file}.${ext}` : `${_file}.webp`;
     try {
