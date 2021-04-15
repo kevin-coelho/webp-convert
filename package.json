@@ -1,0 +1,41 @@
+{
+  "name": "webp-convert",
+  "version": "1.0.0",
+  "description": "node.js command line utility to convert webp images",
+  "main": "index.js",
+  "bin": {
+    "convert-webp": "./index.js"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevin-coelho/webp-convert.git"
+  },
+  "keywords": [
+    "webp",
+    "utility",
+    "command",
+    "line",
+    "cmd"
+  ],
+  "author": "Kevin Coelho <kevin@kevincoelho.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kevin-coelho/webp-convert/issues"
+  },
+  "homepage": "https://github.com/kevin-coelho/webp-convert#readme",
+  "devDependencies": {
+    "eslint": "^7.24.0",
+    "prettier": "^2.2.1"
+  },
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "chalk": "^4.1.0",
+    "commander": "^7.2.0",
+    "omelette": "^0.4.15-1",
+    "prompts": "^2.4.1",
+    "webp-converter": "^2.3.3"
+  }
+}
