@@ -143,7 +143,8 @@ function exitProgram(errFlag = false) {
 }
 
 handleAutoComplete();
-program.version('0.0.1');
+const { version } = require('./package.json');
+program.version(version);
 program
   .name('convert-webp')
   .usage('[flags] file')
