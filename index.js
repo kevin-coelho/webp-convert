@@ -13,6 +13,11 @@ function handleAutoComplete() {
   const completion = omelette(`convert-webp <file>`);
 
   completion.on('file', ({ before, reply }) => {
+    const { debug } = program.opts();
+    if (debug) console.log('Autocomplete', {
+      before,
+      dir: path.resolve(path.join(process.cwd(), before)),
+    });
     if (before.startsWith('.'))
       reply(fs.readdirSync(path.resolve(path.join(process.cwd(), before))));
     else reply(fs.readdirSync(path.resolve(before)));
@@ -34,7 +39,11 @@ function handleAutoComplete() {
 }
 
 async function convertToWebp(file, out) {
-  const { q, z, lossless, verbose } = program.opts();
+  const { q, z, lossless, verbose, debug } = program.opts();
+  if (debug) console.log('Convert to webp', {
+    file,
+    out
+  });
   const options = { q, z, lossless };
   const option = Object.keys(options)
     .filter((k) => options[k] !== null && typeof options[k] !== 'undefined')
@@ -44,11 +53,23 @@ async function convertToWebp(file, out) {
 }
 
 async function convertFromWebp(file, ext, out) {
-  const { verbose } = program.opts();
+  const { verbose, debug } = program.opts();
+  if (debug) console.log('Convert from webp', {
+    file,
+    ext,
+    out
+  });
   await webp.dwebp(file, out, '-o', verbose ? '-v' : undefined);
 }
 
 function generateOutfile(file, out, isWebp, ext) {
+  const { debug } = program.opts();
+  if (debug) console.log('Generate outfile', {
+    file,
+    out,
+    isWebp,
+    ext,
+  });
   const _file = file.replace(/\.[^/.]+$/, '');
   if (!out) {
     out = isWebp ? `${_file}.${ext}` : `${_file}.webp`;
@@ -66,6 +87,10 @@ function generateOutfile(file, out, isWebp, ext) {
 }
 
 async function handleFile(file) {
+  const { debug } = program.opts();
+  if (debug) console.log('handleFile', {
+    file
+  });
   try {
     file = path.resolve(file);
     fs.statSync(file);
@@ -124,6 +149,7 @@ program
   .usage('[flags] file')
   .option('--setup', 'Set up this command line tool for autocompletion')
   .option('--cleanup', 'Undo autocompletion setups (remove files from ~)')
+  .option('--debug', 'Print debug messages')
   .option('-v, --verbose', 'Output logging from conversion')
   .option('-O, --out', 'Output file name. Specify without file extension')
   .option(
